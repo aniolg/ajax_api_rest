@@ -5,17 +5,12 @@ $("document").ready(function() {
 });
 
 function getData(){
-    alert("works!");
-    $.ajax({
-        url: "testdata.txt",
-        type: "GET",
-        dataType: "text",
-        success: addData,
-        error: errorMessage,
-        complete: function(xhr, status) {
-            console.log("The request is complete!")
-        }
-    })
+    var jokeApi = "http://api.icndb.com/jokes/random";
+    $.getJSON(jokeApi, {
+        tags: "id joke",
+        tagmode: "any",
+        format: "json"
+    }, addData)
 }
 
 function addData(result) {
