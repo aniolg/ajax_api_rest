@@ -7,7 +7,7 @@ $("document").ready(function() {
 function getData(){
     var jokeApi = "http://api.icndb.com/jokes/random";
     $.getJSON(jokeApi, {
-        tags: "id joke",
+        tags: "joke",
         tagmode: "any",
         format: "json"
     }, addData)
@@ -15,7 +15,10 @@ function getData(){
 
 function addData(result) {
     console.log("Setting result");
-    $("#ajax_content").append(result);
+    $.each(result, function (index, element){
+        $("#joke").html("<p>" + element.joke + "</p>");
+    } )
+    
 }
 
 function errorMessage(xhr, status, strErr){
