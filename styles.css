@@ -2,3 +2,12 @@ h1{
     text-align: center;
     padding: 20px 0px;
 }
+
+.content{
+    text-align: center;
+    max-width: 400px;
+}
+
+#joke{
+    min-height:200px;
+}
